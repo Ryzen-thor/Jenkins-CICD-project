@@ -43,7 +43,7 @@ pipeline {
 		steps{
 			script{
 				sh '''
-				ch deploy
+				cd deploy
 				cat deployment.yaml
 				sed -i '' "s/v2/${BUILD_NUMBER}/g" deployment.yaml
 				cat deployment.yaml
