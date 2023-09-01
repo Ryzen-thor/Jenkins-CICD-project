@@ -9,7 +9,7 @@ pipeline {
 
 	  stage('Checkout') {
 	     steps {
-	       git 'https://github.com/Ryzen-thor/Jenkins-CICD-project.git'
+	       git branch: 'main', url: 'https://github.com/Ryzen-thor/Jenkins-CICD-project.git'
 	      }
 
 	     }
