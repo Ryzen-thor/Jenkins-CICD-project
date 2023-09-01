@@ -19,7 +19,7 @@ pipeline {
 			script{
 				sh '''
 				echo 'Build Docker Image'
-				docker build -t ${env.dockerUser}/todo-app:${BUILD_NUMBER} .
+				docker build -t stormbreaker2023/todo-app:${BUILD_NUMBER} .
 				'''
 			}
 
