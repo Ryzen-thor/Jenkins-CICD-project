@@ -42,6 +42,7 @@ pipeline {
 	  stage('Update k8s manifest and push to repo'){
 		steps{
 			script{
+				withCredentials([usernamePassword(credentialsId:"gitCred",passwordVariable:"gitPass",usernameVariable:"gitUser")]){
 				sh '''
 				cd deploy
 				cat deployment.yaml
@@ -53,6 +54,7 @@ pipeline {
 				git push https://github.com/Ryzen-thor/Jenkins-CICD-project.git HEAD:main
 
 				'''
+				}
 			}
 		}
 	  }
