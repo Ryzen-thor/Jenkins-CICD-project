@@ -33,7 +33,7 @@ pipeline {
 					echo 'push to DockerHub'
      					withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerPass",usernameVariable:"dockerUser")]){
 	  			        sh "docker login -u ${env.dockerUser} -p ${env.dockerPass}"
-					docker push ${env.dockerUser}/todo-app:${BUILD_NUMBER}
+					sh "docker push ${env.dockerUser}/todo-app:${BUILD_NUMBER}"
 				
 			}
 		}
