@@ -43,6 +43,7 @@ pipeline {
 		steps{
 			
 				sh """
+    				    cd deploy
     				    sed -i "s/v2/${BUILD_NUMBER}/g" deployment.yaml
 		                    git config --global user.name "Ryzen-thor"
 		                    git config --global user.email "aman.friend2016@gmail.com"
