@@ -51,7 +51,7 @@ pipeline {
 				git add deployment.yaml
 				git commit -m 'Updated deployment.yaml | using Jenkinsfile pipeline'
 				git remote -v
-				git push 
+				git push --set-upstream origin main
 
 				'''
 				}
