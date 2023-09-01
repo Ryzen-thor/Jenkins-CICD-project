@@ -41,25 +41,23 @@ pipeline {
 
 	  stage('Update k8s manifest and push to repo'){
 		steps{
-			script{
-				withCredentials([usernamePassword(credentialsId:"gitCred",passwordVariable:"gitPass",usernameVariable:"gitUser")]){
-				sh '''
-				cd deploy
-				cat deployment.yaml
-				sed -i "s/v2/${BUILD_NUMBER}/g" deployment.yaml
-				cat deployment.yaml
-				git add deployment.yaml
-    				echo "${env.gitUser} ${env.gitPass}"
-				git commit -m 'Updated deployment.yaml | using Jenkinsfile pipeline'
-				git remote -v
-    				// git remote add origin https://${env.gitUser}:${env.gitPass}@github.com/${env.gitUser}/Jenkins-CICD-project.git
-				git push https://github.com/Ryzen-thor/Jenkins-CICD-project main
-
-				'''
-				}
-			}
-		}
+			
+				sh """
+    				    sed -i "s/v2/${BUILD_NUMBER}/g" deployment.yaml
+		                    git config --global user.name "Ryzen-thor"
+		                    git config --global user.email "aman.friend2016@gmail.com"
+		                    git add deployment.yaml
+		                    git commit -m "Updated Deployment Manifest"
+		                """
+				withCredentials([gitUsernamePassword(credentialsId: 'gitCred', gitToolName: 'Default')]) {
+                    sh "git push https://github.com/Ryzen-thor/Jenkins-CICD-project main"
+                }
+				
+				
+			
+		
 	  }
 	 }
 
-}	
+}
+}
