@@ -51,7 +51,7 @@ pipeline {
 				git add deployment.yaml
 				git commit -m 'Updated deployment.yaml | using Jenkinsfile pipeline'
 				git remote -v
-				git push https://github.com/Ryzen-thor/Jenkins-CICD-project.git HEAD:main
+				git push 
 
 				'''
 				}
