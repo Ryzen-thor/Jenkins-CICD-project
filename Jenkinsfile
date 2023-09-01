@@ -19,7 +19,7 @@ pipeline {
 			script{
 				sh '''
 				echo 'Build Docker Image'
-				docker build -t stormbreaker2023/todo-app:IMAGE_TAG .
+				docker build -t ${env.dockerUser}/todo-app:${BUILD_NUMBER} .
 				'''
 			}
 
@@ -29,11 +29,12 @@ pipeline {
 
 	  stage('Push the artifacts'){
 		steps{
-			script{
-				sh '''
+			
 					echo 'push to DockerHub'
-					docker push stormbreaker2023/todo-app:IMAGE_TAG
-				'''
+     					withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerPass",usernameVariable:"dockerUser")]){
+	  			        sh "docker login -u ${env.dockerUser} -p ${env.dockerPass}"
+					docker push ${env.dockerUser}/todo-app:${BUILD_NUMBER}
+				
 			}
 		}
 	  }
