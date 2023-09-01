@@ -47,12 +47,13 @@ pipeline {
     				    sed -i "s/v2/${BUILD_NUMBER}/g" deployment.yaml
 		                    git config --global user.name "Ryzen-thor"
 		                    git config --global user.email "aman.friend2016@gmail.com"
+		      	   	    git remote set-url origin https://Ryzen-thor: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@github.com/Ryzen-thor/Jenkins-CICD-project.git
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
 		                """
-				withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
-                    sh "git push https://github.com/Ryzen-thor/Jenkins-CICD-project main"
-                }
+				// withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
+                    		sh "git push origin main"
+                // }
 				
 				
 			
