@@ -53,7 +53,7 @@ pipeline {
 				git commit -m 'Updated deployment.yaml | using Jenkinsfile pipeline'
 				git remote -v
     				// git remote add origin https://${env.gitUser}:${env.gitPass}@github.com/${env.gitUser}/Jenkins-CICD-project.git
-				git push https://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@github.com/${env.gitUser}/Jenkins-CICD-project.git
+				git push https://github.com/Ryzen-thor/Jenkins-CICD-project main
 
 				'''
 				}
