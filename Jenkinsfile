@@ -50,7 +50,7 @@ pipeline {
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
 		                """
-				withCredentials([gitUsernamePassword(credentialsId: 'gitCred', gitToolName: 'Default')]) {
+				withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
                     sh "git push https://github.com/Ryzen-thor/Jenkins-CICD-project main"
                 }
 				
