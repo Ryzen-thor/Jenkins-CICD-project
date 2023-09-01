@@ -47,7 +47,7 @@ pipeline {
     				    sed -i "s/v2/${BUILD_NUMBER}/g" deployment.yaml
 		                    git config --global user.name "Ryzen-thor"
 		                    git config --global user.email "aman.friend2016@gmail.com"
-		      	   	    git remote set-url origin https://Ryzen-thor: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@github.com/Ryzen-thor/Jenkins-CICD-project.git
+		      	   	    git remote add origin https://Ryzen-thor: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@github.com/Ryzen-thor/Jenkins-CICD-project.git
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
 		                """
