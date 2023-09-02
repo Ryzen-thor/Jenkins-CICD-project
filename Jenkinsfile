@@ -50,9 +50,11 @@ pipeline {
 		      	   	    git remote add aman https://Ryzen-thor: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@github.com/Ryzen-thor/Jenkins-CICD-project.git
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
+		      		    git remote set-url origin https://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@github.com/Jenkins-CICD-project.git
+				    git push origin main
 		                """
 				// withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
-                    		sh "git push aman main"
+                    		// sh "git push aman main"
                 // }
 				
 				
