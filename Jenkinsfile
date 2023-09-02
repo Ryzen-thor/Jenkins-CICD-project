@@ -45,9 +45,8 @@ pipeline {
 			
 				sh """
     				    cd deploy
-    				    sed -i "s/todo-app.*/${BUILD_NUMBER}/g" deployment.yaml
-		                    git config --global user.name "Ryzen-thor"
-		                    git config --global user.email "aman.friend2016@gmail.com"
+    				    sed -i "s/todo-app.*/todo-app:${BUILD_NUMBER}/g" deployment.yaml
+		                   
 		      	   	   
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
