@@ -44,7 +44,7 @@ pipeline {
 			
 				sh """
     				    cd deploy
-    				    sed -i "s/${BUILD_NUMBER-1}/${BUILD_NUMBER}/g" deployment.yaml
+    				    sed -i "s/37/${BUILD_NUMBER}/g" deployment.yaml
 		                    git config --global user.name "Ryzen-thor"
 		                    git config --global user.email "aman.friend2016@gmail.com"
 		      	   	   
