@@ -54,7 +54,7 @@ pipeline {
 		                """
 			// git remote set-url origin https://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@github.com/Ryzen-thor/Jenkins-CICD-project.git
 			// 	    git push origin main
-				withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
+				withCredentials([gitUsernamePassword(credentialsId: 'gitCred',gitToolName: 'Default')]) {
                     		sh "git push https://github.com/Ryzen-thor/Jenkins-CICD-project main"
                 }
 				
