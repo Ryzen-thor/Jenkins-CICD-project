@@ -3,6 +3,7 @@ pipeline {
 	
 	environment  {
 		IMAGE_TAG = "${BUILD_NUMBER}"
+		// APP_NAME = "TODO-APP
 	}
 
 	stages {
@@ -44,7 +45,7 @@ pipeline {
 			
 				sh """
     				    cd deploy
-    				    sed -i "s/37/${BUILD_NUMBER}/g" deployment.yaml
+    				    sed -i "s/todo-app.*/${BUILD_NUMBER}/g" deployment.yaml
 		                    git config --global user.name "Ryzen-thor"
 		                    git config --global user.email "aman.friend2016@gmail.com"
 		      	   	   
