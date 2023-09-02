@@ -50,7 +50,7 @@ pipeline {
 		      	   	   
 		                    git add deployment.yaml
 		                    git commit -m "Updated Deployment Manifest"
-		      		    git remote set-url origin https://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@github.com/Jenkins-CICD-project.git
+		      		    git remote set-url origin https://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@github.com/Ryzen-thor/Jenkins-CICD-project.git
 				    git push origin main
 		                """
 				// withCredentials([gitUsernamePassword(credentialsId: 'gitCred', passwordVariable:'gitPass',usernameVariable:'gitUser')]) {
